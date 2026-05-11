@@ -1,5 +1,7 @@
 # object-path-kit
 
+[![CI](https://github.com/Recoveredd/object-path-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/Recoveredd/object-path-kit/actions/workflows/ci.yml)
+
 Parse, normalize and safely access JavaScript object paths.
 
 `object-path-kit` is a small TypeScript utility for applications where object paths are data: JSON tools, table builders, import/export mappings, dynamic forms, admin dashboards and configuration UIs.
