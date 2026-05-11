@@ -8,6 +8,14 @@ Parse, normalize and safely access JavaScript object paths.
 
 It focuses on predictable path parsing and safe access rather than trying to be a large object manipulation toolkit.
 
+## Package quality
+
+- TypeScript types are generated from the source.
+- ESM-only package with no runtime dependencies.
+- Marked as side-effect free for bundlers.
+- Tested on Node.js 20 and 22 with GitHub Actions.
+- Keeps prototype-pollution-sensitive path segments blocked by default.
+
 ## Why
 
 Reading `user.profile.name` is easy when the path is hard-coded:
