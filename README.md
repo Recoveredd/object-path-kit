@@ -100,6 +100,26 @@ const columns = [
 const row = columns.map((column) => getPath(order, column.path, ''));
 ```
 
+Use the same idea with `array-table-kit` when paths come from user settings or config. For bracket notation or keys containing dots, use an accessor:
+
+```ts
+import { getPath } from 'object-path-kit';
+import { arrayToMarkdownTable } from 'array-table-kit';
+
+const cityPath = 'customer["billing.address"].city';
+
+arrayToMarkdownTable(orders, {
+  columns: [
+    { key: 'customer', path: 'customer.name' },
+    {
+      key: 'city',
+      header: 'City',
+      accessor: (row) => getPath(row, cityPath, '') as string
+    }
+  ]
+});
+```
+
 ### Import/export mappings
 
 Map incoming fields to nested output objects.
