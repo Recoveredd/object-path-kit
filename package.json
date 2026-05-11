@@ -1,6 +1,6 @@
 {
   "name": "object-path-kit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Parse, normalize and safely access JavaScript object paths.",
   "type": "module",
   "license": "MIT",
