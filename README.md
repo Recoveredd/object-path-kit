@@ -110,6 +110,22 @@ const columns = [
 const row = columns.map((column) => getPath(order, column.path, ''));
 ```
 
+Pair with `object-key-paths` when paths should be discovered from an unknown payload before values are read:
+
+```ts
+import { getLeafPaths } from 'object-key-paths';
+import { getPath } from 'object-path-kit';
+
+const paths = getLeafPaths(report, {
+  pathStyle: 'bracket'
+});
+
+const fields = paths.map((path) => ({
+  path,
+  value: getPath(report, path)
+}));
+```
+
 Use the same idea with `array-table-kit` when paths come from user settings or config. For bracket notation or keys containing dots, use an accessor:
 
 ```ts
