@@ -409,4 +409,4 @@ interface ValidatePathResult {
 
 ## License
 
-MIT
+MPL-2.0
