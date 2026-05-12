@@ -1,12 +1,14 @@
 # object-path-kit
 
+[![npm version](https://img.shields.io/npm/v/object-path-kit.svg)](https://www.npmjs.com/package/object-path-kit)
+[![License: MPL-2.0](https://img.shields.io/badge/license-MPL--2.0-blue.svg)](LICENSE)
 [![CI](https://github.com/Recoveredd/object-path-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/Recoveredd/object-path-kit/actions/workflows/ci.yml)
 
 Parse, normalize and safely access JavaScript object paths.
 
 `object-path-kit` is a small TypeScript utility for applications where object paths are data: JSON tools, table builders, import/export mappings, dynamic forms, admin dashboards and configuration UIs.
 
-Demo: [packages.wasta-wocket.fr/object-path-kit/](https://packages.wasta-wocket.fr/object-path-kit/)
+Links: [Demo](https://packages.wasta-wocket.fr/object-path-kit/) · [npm](https://www.npmjs.com/package/object-path-kit) · [GitHub](https://github.com/Recoveredd/object-path-kit)
 
 It focuses on predictable path parsing and safe access rather than trying to be a large object manipulation toolkit.
 
