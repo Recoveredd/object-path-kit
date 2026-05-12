@@ -162,6 +162,26 @@ const output = Object.entries(mapping).reduce(
 );
 ```
 
+Use `json-csv-kit` when those mappings also need a CSV export. `accessor` keeps bracket paths and ambiguous keys under your control:
+
+```ts
+import { getPath } from 'object-path-kit';
+import { jsonToCsv } from 'json-csv-kit';
+
+const columns = [
+  { key: 'customer', header: 'Customer', path: 'customer.name' },
+  { key: 'city', header: 'City', path: 'customer["billing.address"].city' }
+];
+
+const csv = jsonToCsv(orders, {
+  columns: columns.map((column) => ({
+    key: column.key,
+    header: column.header,
+    accessor: (row) => getPath(row, column.path, '')
+  }))
+});
+```
+
 ### Dynamic forms
 
 Bind fields to nested state without mutating the original object.
