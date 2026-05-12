@@ -56,6 +56,7 @@ import {
   hasPath,
   normalizePath,
   parsePath,
+  deletePathImmutable,
   setPathImmutable,
   stringifyPath
 } from 'object-path-kit';
@@ -94,6 +95,8 @@ data.users[0].profile.name;
 
 getPath(next, 'users[0].profile.name');
 // Grace
+
+const withoutActive = deletePathImmutable(next, 'users[0].profile.active');
 ```
 
 ## Common Use Cases
@@ -196,6 +199,7 @@ const field = {
 
 const value = getPath(formState, field.path, '');
 const nextState = setPathImmutable(formState, field.path, 'ada@example.com');
+const clearedState = deletePathImmutable(nextState, field.path);
 ```
 
 ### Config and rule engines

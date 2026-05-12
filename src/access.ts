@@ -58,6 +58,21 @@ export function setPathImmutable<TValue>(
   return setAtSegment(source, segments, value, 0);
 }
 
+export function deletePathImmutable(
+  source: unknown,
+  path: PathInput,
+  options?: PathOptions
+): unknown {
+  const segments = parsePath(path, options);
+
+  if (segments.length === 0) {
+    return undefined;
+  }
+
+  const result = deleteAtSegment(source, segments, 0);
+  return result.changed ? result.value : source;
+}
+
 function setAtSegment<TValue>(
   current: unknown,
   segments: readonly PathSegment[],
@@ -83,6 +98,39 @@ function setAtSegment<TValue>(
 
   clone[segment] = setAtSegment(next, segments, value, index + 1);
   return clone;
+}
+
+function deleteAtSegment(
+  current: unknown,
+  segments: readonly PathSegment[],
+  index: number
+): { changed: boolean; value: unknown } {
+  const segment = segments[index];
+
+  if (segment === undefined || !isIndexable(current) || !Object.hasOwn(current, segment)) {
+    return { changed: false, value: current };
+  }
+
+  const clone = cloneContainer(current, segment);
+
+  if (index === segments.length - 1) {
+    if (Array.isArray(clone) && typeof segment === 'number') {
+      clone.splice(segment, 1);
+    } else {
+      delete clone[segment];
+    }
+
+    return { changed: true, value: clone };
+  }
+
+  const next = deleteAtSegment(current[segment], segments, index + 1);
+
+  if (!next.changed) {
+    return { changed: false, value: current };
+  }
+
+  clone[segment] = next.value;
+  return { changed: true, value: clone };
 }
 
 function cloneContainer(value: unknown, segment: PathSegment): MutableContainer {

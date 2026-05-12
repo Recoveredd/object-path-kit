@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  deletePathImmutable,
   getPath,
   hasPath,
   isSafePath,
@@ -108,5 +109,27 @@ describe('object-path-kit', () => {
         { name: 'Ada' }
       ]
     });
+  });
+
+  it('deletes nested values immutably', () => {
+    const source = {
+      users: [
+        { profile: { name: 'Ada', active: true } },
+        { profile: { name: 'Grace', active: false } }
+      ]
+    };
+
+    const next = deletePathImmutable(source, 'users[0].profile.active') as typeof source;
+
+    expect(next.users[0]?.profile).toEqual({ name: 'Ada' });
+    expect(source.users[0]?.profile).toEqual({ name: 'Ada', active: true });
+    expect(next).not.toBe(source);
+    expect(next.users).not.toBe(source.users);
+  });
+
+  it('returns the original reference when deleting a missing path', () => {
+    const source = { user: { name: 'Ada' } };
+
+    expect(deletePathImmutable(source, 'user.missing')).toBe(source);
   });
 });

@@ -4,6 +4,7 @@ export {
   UnsafePathError
 } from './errors.js';
 export {
+  deletePathImmutable,
   getPath,
   hasPath,
   setPathImmutable
