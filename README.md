@@ -6,6 +6,8 @@ Parse, normalize and safely access JavaScript object paths.
 
 `object-path-kit` is a small TypeScript utility for applications where object paths are data: JSON tools, table builders, import/export mappings, dynamic forms, admin dashboards and configuration UIs.
 
+Demo: https://kits.wasta-wocket.fr/object-path-kit
+
 It focuses on predictable path parsing and safe access rather than trying to be a large object manipulation toolkit.
 
 ## Package quality
