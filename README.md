@@ -17,6 +17,7 @@ It focuses on predictable path parsing and safe access rather than trying to be 
 - TypeScript types are generated from the source.
 - ESM-only package with no runtime dependencies.
 - Marked as side-effect free for bundlers.
+- CI runs `npm ci`, `typecheck`, `build`, and `test`.
 - Tested on Node.js 20 and 22 with GitHub Actions.
 - Keeps prototype-pollution-sensitive path segments blocked by default.
 
