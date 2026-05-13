@@ -2,6 +2,16 @@
   "name": "object-path-kit",
   "version": "0.1.3",
   "description": "Parse, normalize and safely access JavaScript object paths.",
+  "keywords": [
+    "object-path",
+    "nested-data",
+    "json",
+    "path-parser",
+    "immutable",
+    "typescript",
+    "browser",
+    "developer-tools"
+  ],
   "type": "module",
   "sideEffects": false,
   "license": "MPL-2.0",
@@ -14,16 +24,6 @@
     "url": "https://github.com/Recoveredd/object-path-kit/issues"
   },
   "homepage": "https://github.com/Recoveredd/object-path-kit#readme",
-  "keywords": [
-    "object",
-    "path",
-    "dot",
-    "json",
-    "parse",
-    "get",
-    "immutable",
-    "typescript"
-  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
